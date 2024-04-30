@@ -4,7 +4,7 @@ import { Albums } from "./pages/albums.js"
 import { Photos } from "./pages/photos.js"
 
 export const API_URL = "https://jsonplaceholder.typicode.com"
-export const PHOTOS_PER_PAGE = 10
+export const PHOTOS_PER_PAGE = 15
 
 export const PAGES = [
 	{
