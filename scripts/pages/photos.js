@@ -48,7 +48,6 @@ export async function Photos(albumId) {
 			{ threshold: 1 }
 		)
 
-		console.log(photos)
 		photos
 			?.map((photo) => {
 				const photoEl = document.createElement("div")
@@ -95,6 +94,5 @@ async function loadPhotos() {
 
 	state.photosPosition += photos.length
 
-	console.log('aaa', photos)
 	return photos
 }
