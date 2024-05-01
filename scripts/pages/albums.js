@@ -16,7 +16,6 @@ export async function Albums(userId) {
 
 	const h1 = document.createElement("h1")
 	const albumsWrapper = document.createElement("div")
-	h1.classList.add("title")
 	h1.innerHTML = `User #${userId} albums`
 	albumsWrapper.classList.add("cards")
 

@@ -22,7 +22,6 @@ export async function Photos(albumId) {
 
 	const h1 = document.createElement("h1")
 	const photosContainer = document.createElement("div")
-	h1.classList.add("title")
 	h1.innerHTML = `Album #${albumId} photos`
 	photosContainer.classList.add("photos")
 	containerEl.appendChild(h1)

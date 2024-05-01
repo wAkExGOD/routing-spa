@@ -12,7 +12,6 @@ export async function Home() {
 
 	const h1 = document.createElement("h1")
 	const usersWrapper = document.createElement("div")
-	h1.classList.add("title")
 	h1.innerHTML = "Users"
 	usersWrapper.classList.add("cards")
 
