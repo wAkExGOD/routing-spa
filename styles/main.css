@@ -69,7 +69,7 @@ a {
 }
 .breadcrumb:not(:last-child):after {
   position: absolute;
-  content: '→';
+  content: "→";
   top: 0;
   right: 0.25rem;
 }
@@ -155,8 +155,6 @@ a {
   margin: 0 auto;
   animation: rotating 1s ease infinite;
 }
-
-
 
 @keyframes rotating {
   to {

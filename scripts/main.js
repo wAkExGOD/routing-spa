@@ -1,13 +1,13 @@
 import { router } from "./router.js"
 
 export const CACHE = {
-	users: [],
-	albums: {},
-	photos: {},
+  users: [],
+  albums: {},
+  photos: {},
 }
 
 router(window.location.hash.replace("#", ""))
 
 window.addEventListener("hashchange", () => {
-	router(window.location.hash.replace("#", ""))
+  router(window.location.hash.replace("#", ""))
 })
