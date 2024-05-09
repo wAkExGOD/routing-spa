@@ -20,7 +20,11 @@ export const PAGES = [
   {
     title: "Photos",
     check: (url) => /^users\/\d+\/albums\/\d+\/?$/.test(url),
-    render: (url) => Photos(url.split("/")[3]),
+    render: (url) => {
+      const userId = url.split("/")[1]
+      const albumId = url.split("/")[3]
+      return Photos(userId, albumId)
+    },
   },
   {
     title: "404",

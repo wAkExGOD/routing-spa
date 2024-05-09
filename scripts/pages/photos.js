@@ -1,15 +1,16 @@
-import { getPhotosById } from "../helpers.js"
+import { getPhotosById, getUsers } from "../helpers.js"
 import { renderBreadcrumbs, setDataLoading } from "../render.js"
 
 const state = {
   isEnd: false,
   isLoading: false,
   photosPosition: 0,
+  userId: null,
   albumId: null,
   wasScrolled: false,
 }
 
-export async function Photos(albumId) {
+export async function Photos(userId, albumId) {
   renderBreadcrumbs()
 
   const containerEl = document.querySelector(".container")
@@ -17,7 +18,8 @@ export async function Photos(albumId) {
   state.isEnd = false
   state.isLoading = false
   state.photosPosition = 0
-  state.albumId = albumId
+  state.userId = +userId
+  state.albumId = +albumId
   state.wasScrolled = false
 
   const h1 = document.createElement("h1")
@@ -31,7 +33,7 @@ export async function Photos(albumId) {
   appendPhotoElements(newPhotos)
 
   function appendPhotoElements(photos) {
-    if (!photos?.length) {
+    if (!photos?.length || !Array.isArray(photos)) {
       return
     }
 
@@ -48,7 +50,7 @@ export async function Photos(albumId) {
     )
 
     photos
-      ?.map((photo) => {
+      .map((photo) => {
         const photoEl = document.createElement("div")
         photoEl.classList.add("photo")
         photoEl.innerHTML = `
@@ -77,6 +79,12 @@ export async function Photos(albumId) {
 async function loadPhotos() {
   setDataLoading(true)
   state.isLoading = true
+  const users = await getUsers()
+  const isValidUser = Boolean(users.find((u) => u.id === state.userId))
+  if (!isValidUser) {
+    return (window.location.hash = "#404")
+  }
+
   const photos = await getPhotosById(state.albumId, state.photosPosition)
   state.isLoading = false
   setDataLoading(false)
