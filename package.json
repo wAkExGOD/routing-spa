@@ -1,0 +1,34 @@
+{
+  "name": "routing-spa",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run compile && npm run fix",
+    "fix": "fix-esm-import-path ./build",
+    "compile": "tsc",
+    "lint": "npx eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix"
+  },
+  "keywords": [
+    "JavaScript",
+    "TypeScript",
+    "JSONPlaceholder"
+  ],
+  "author": "Vladislav Panasik",
+  "license": "ISC",
+  "dependencies": {
+    "fix-esm-import-path": "^1.5.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.2.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript-eslint": "^7.8.0"
+  }
+}
