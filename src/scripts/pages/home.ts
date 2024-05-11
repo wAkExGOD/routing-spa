@@ -16,7 +16,7 @@ export async function Home() {
 	usersWrapper.classList.add('cards')
 
 	users
-		.map(user => {
+		.map((user) => {
 			const userEl = document.createElement('a')
 			userEl.setAttribute('href', `#users/${user.id}/albums`)
 			userEl.classList.add('card')
@@ -29,7 +29,7 @@ export async function Home() {
 
 			return userEl
 		})
-		.forEach(userEl => usersWrapper.appendChild(userEl))
+		.forEach((userEl) => usersWrapper.appendChild(userEl))
 
 	containerEl?.appendChild(h1)
 	containerEl?.appendChild(usersWrapper)

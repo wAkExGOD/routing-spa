@@ -20,7 +20,7 @@ export async function Albums(userId: number) {
 	albumsWrapper.classList.add('cards')
 
 	albums
-		.map(album => {
+		.map((album) => {
 			const albumEl = document.createElement('a')
 			albumEl.setAttribute('href', `#users/${album.userId}/albums/${album.id}`)
 			albumEl.classList.add('card')
@@ -29,7 +29,7 @@ export async function Albums(userId: number) {
 
 			return albumEl
 		})
-		.forEach(el => albumsWrapper.appendChild(el))
+		.forEach((el) => albumsWrapper.appendChild(el))
 
 	containerEl?.appendChild(h1)
 	containerEl?.appendChild(albumsWrapper)

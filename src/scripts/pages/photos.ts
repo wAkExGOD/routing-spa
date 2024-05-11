@@ -46,7 +46,7 @@ export async function Photos(userId: number, albumId: number) {
 		}
 
 		const observer = new IntersectionObserver(
-			async entries => {
+			async (entries) => {
 				const entry = entries[0]
 				if (entry.isIntersecting && !state.isEnd && !state.isLoading) {
 					state.wasScrolled = true
@@ -58,7 +58,7 @@ export async function Photos(userId: number, albumId: number) {
 		)
 
 		photos
-			.map(photo => {
+			.map((photo) => {
 				const photoEl = document.createElement('div')
 				photoEl.classList.add('photo')
 				photoEl.innerHTML = `
@@ -68,7 +68,7 @@ export async function Photos(userId: number, albumId: number) {
 
 				return photoEl
 			})
-			.forEach(p => photosContainer.appendChild(p))
+			.forEach((p) => photosContainer.appendChild(p))
 
 		if (state.isEnd) {
 			const endEl = document.createElement('div')
@@ -88,7 +88,7 @@ async function loadPhotos() {
 	setDataLoading(true)
 	state.isLoading = true
 	const users = await getUsers()
-	const isValidUser = Boolean(users.find(u => u.id === state.userId))
+	const isValidUser = Boolean(users.find((u) => u.id === state.userId))
 	if (!isValidUser) {
 		window.location.hash = '#404'
 		return

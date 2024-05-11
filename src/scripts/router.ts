@@ -9,5 +9,5 @@ export function router(url: string) {
 
 	containerEl.innerHTML = ''
 
-	return PAGES.find(p => p.check(url))?.render(url)
+	return PAGES.find((p) => p.check(url))?.render(url)
 }

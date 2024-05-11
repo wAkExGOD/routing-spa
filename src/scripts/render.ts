@@ -6,7 +6,7 @@ export function setDataLoading(isLoading: boolean) {
 	if (!isLoading) {
 		return containerEl
 			?.querySelectorAll('.spinner')
-			.forEach(spinnerEl => spinnerEl.remove())
+			.forEach((spinnerEl) => spinnerEl.remove())
 	}
 
 	const spinnerEl = document.createElement('div')
@@ -28,7 +28,7 @@ export function renderBreadcrumbs() {
 	for (let i = 0; i < urlParts.length; i++) {
 		const currentUrl = parts.slice(0, i + 1).join('/')
 
-		const page = PAGES.find(p => p.check(currentUrl))
+		const page = PAGES.find((p) => p.check(currentUrl))
 
 		if (page?.title === '404' && i === urlParts.length - 1) {
 			return
@@ -47,7 +47,7 @@ export function renderBreadcrumbs() {
 		})
 	}
 
-	breadcrumbs.forEach(breadcrumb => {
+	breadcrumbs.forEach((breadcrumb) => {
 		const breadcrumbLinkEl = document.createElement('a')
 
 		breadcrumbLinkEl.classList.add('breadcrumb')
