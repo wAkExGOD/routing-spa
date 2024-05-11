@@ -3,11 +3,11 @@ import { PAGES } from './constants.js'
 const containerEl = document.querySelector('.container')
 
 export function router(url: string) {
-	if (!containerEl) {
-		return
-	}
+  if (!containerEl) {
+    return
+  }
 
-	containerEl.innerHTML = ''
+  containerEl.innerHTML = ''
 
-	return PAGES.find((p) => p.check(url))?.render(url)
+  return PAGES.find((p) => p.check(url))?.render(url)
 }
